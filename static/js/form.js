@@ -5,7 +5,7 @@
 	var openid = search==null?null : unescape(search[2]);
 
 	$.get("http://47.106.227.171/views/form.ajax.php",{id:123},function(data){
-		console.log(data);
+		alert(data);
 	},'json');
 
 })();
