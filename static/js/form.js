@@ -6,5 +6,5 @@
 
 	$.get("http://47.106.227.171/routes/route.php",{id:123},function(data){
 		console.log(data);
-	},'jsonp');
+	},'json');
 })();
