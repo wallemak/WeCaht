@@ -1,6 +1,13 @@
 <?php
 header("Access-Control-Allow-Origin:*");
 
+$route = [
+	
+
+
+
+
+];
 
 
 $request = $_REQUEST;
