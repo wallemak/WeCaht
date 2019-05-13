@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('PRC'); 
-require_once  'extend/check.php';
+require_once  'extend\check.php';
 
 class msgtemplate
 {
