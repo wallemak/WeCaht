@@ -1,7 +1,7 @@
 <?php
 // use extend\Test;
-require_once __DIR__.'\..\extend\database.php';
-require_once __DIR__.'\..\extend\redisbase.php';
+require_once '../extend/database.php';
+require_once '../extend/redisbase.php';
 
 
 
