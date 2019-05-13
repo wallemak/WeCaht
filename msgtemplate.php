@@ -1,33 +1,85 @@
 <?php
+date_default_timezone_set('PRC'); 
+require_once  'extend/check.php';
 
-$appid = 'wx2ca1b4d674248dbd';
-$AppSecret = 'b7cfe3b30a50baa9564900fbf297aedd';
-
-$res = json_decode(file_get_contents("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=$appid&secret=$AppSecret"),true);
-$access_token = $res['access_token'];
-
-$url = "https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=$access_token";
-$data = [
-	'industry_id1'=>1,
-	'industry_id2'=>2
-];
-
-$json = '{"industry_id1":"2","industry_id2":"1"}';
-
-// echo $json;
-// 
-$post_data = http_build_query($data);
-// $url = $url.'&'.$post_data;
-$ch = curl_init();
-curl_setopt($ch,CURLOPT_TIMEOUT,60);
-curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch,CURLOPT_URL,$url);
-curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
-curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);
-// curl_setopt($ch, CURLOPT_HTTPHEADER, $data);
-curl_setopt($ch,CURLOPT_POST, 1);
-curl_setopt($ch,CURLOPT_POSTFIELDS,$json);
-$res = curl_exec($ch);
-var_dump($res);
+class msgtemplate
+{
+	public function __construct()
+	{
+		$check = new check;
+		$this->access_token = $check->access_token;
+	}
 
 
+	//设置模板:
+	public function set_tem()
+	{
+		$url = "https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=$this->access_token";
+		$json = '{"industry_id1":"2","industry_id2":"1"}';
+
+		$post_data = http_build_query($data);
+		// $url = $url.'&'.$post_data;
+		
+		$result = $this->https_request($url,$json);
+		return $result;
+	}
+
+
+	//获取设置的行业信息
+	public function get_industry()
+	{
+		$result = file_get_contents("https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=$this->access_token");
+		return $result;
+
+	}
+
+	public function get_temId()
+	{
+		$url = "https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token=$this->access_token";
+		$result = $this->https_request($url);
+		return $result;
+	}
+
+	public function https_request($url,$data = null){
+	    $curl = curl_init();
+	    curl_setopt($curl,CURLOPT_TIMEOUT,60);
+	    curl_setopt($curl, CURLOPT_URL, $url);
+	    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+	    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+	    if (!empty($data)){
+	        curl_setopt($curl, CURLOPT_POST, 1);
+	        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+	    }
+	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	    $output = curl_exec($curl);
+	    curl_close($curl);
+	    return $output;
+
+	}
+
+	public function pub_msg($openid,$content)
+	{
+		$time = date('Y-m-d H:m:i',time());
+	
+		$json = [
+			"touser"=>$openid,
+			"template_id"=>"LjaOq8zl-L-qy2uQqwRocVLXwjClCkPQcn-c28If82c",
+			"data"=>[
+				"first"=>[
+					"value"=>"成功",
+				],
+				"content"=>[
+					"value"=>$content,
+				],
+				"time"=>[
+					"value"=>$time,
+				]
+			],
+		];
+		$json = json_encode($json);
+		$url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=$this->access_token";
+		$result = $this->https_request($url,$json);
+		return $result;
+	}
+
+}

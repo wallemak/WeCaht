@@ -1,10 +1,8 @@
 <?php
-require_once 'helpers/helper.php';
-require_once 'extend/database.php';
-require_once 'extend/redisbase.php';
+require_once 'extend/check.php';
 
 // $db = new database;
 
-$redis = new redisbase;
 
-echo $redis->get('name');
+// $token = new check;
+// echo $token->access_token;

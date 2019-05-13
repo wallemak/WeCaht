@@ -43,12 +43,7 @@ $jsonmenu = '{
            "sub_button":[
             {
                "type":"view",
-               "name":"烤天下",
-               "url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2ca1b4d674248dbd&redirect_uri=http://wd1700273.pro.wdcase.com/mak/bbq/index.php/bbq/index&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect"
-            },
-            {
-               "type":"view",
-               "name":"授权",
+               "name":"模板推送",
                "url":"http://47.106.227.171/auth.php"
             },
             {

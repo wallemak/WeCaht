@@ -1,8 +1,6 @@
 <?php
 class redisbase 
 {
-	public $host = "'127.0.0.1'";
-	public $port = 6397;
 	public $pass = '123456';
 
 
@@ -10,14 +8,18 @@ class redisbase
 	{
 		# code...
 		$this->db = new redis();
-		$this->db->connect('127.0.0.1', 6379); 
-		// $this->db->connect($this->host, $this->port); 
+		$this->db->connect('127.0.0.1', 6379);
 		$this->db->auth($this->pass);
 	}
 
-	public function set()
+	public function set($key,$value,$time=86400)
 	{
-
+		$res = $this->db->setex($key,$time,$value);
+		if($res){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	public function get($key)

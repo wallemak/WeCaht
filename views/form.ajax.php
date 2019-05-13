@@ -1,14 +1,14 @@
 <?php
 header("Access-Control-Allow-Origin:*");
-
+require_once '../msgtemplate.php';
 
 switch (true) 
 {
-	case $REQUEST['type']=='GetUserinfo':
+	case $_REQUEST['type']=='GetUserinfo':
 		GetUserinfo();
 	break;
 	
-	case $REQUEST['type']=='submit':
+	case $_REQUEST['type']=='submit':
 		submit();
 	break;
 }
@@ -39,8 +39,11 @@ function GetUserinfo()
 
 function submit()
 {
-
-	
+	$openid = $_REQUEST['openid'];
+	$content = $_REQUEST['content'];
+	$tem = new msgtemplate;
+	$res = $tem->pub_msg($openid,$content);
+	echo $res;
 }
 
 
