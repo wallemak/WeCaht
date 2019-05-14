@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('PRC'); 
-require_once  'extend/check.php';
+require_once  '../extend/check.php';
 
 class msgtemplate
 {
@@ -80,7 +80,7 @@ class msgtemplate
 				]
 			],
 		];
-		$json = json_encode($json,JSON_UNESCAPED_UNICODE);
+		$json = json_encode($json);
 		$url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=$this->access_token";
 		$result = $this->https_request($url,$json);
 		return $result;

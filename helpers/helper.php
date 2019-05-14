@@ -2,6 +2,7 @@
 // use extend\Test;
 require_once '../extend/database.php';
 require_once '../extend/redisbase.php';
+require_once '../extend/curl.php';
 
 
 
@@ -23,6 +24,13 @@ if(!function_exists('redis'))
 	}
 }
 
+if(!function_exists('curl'))
+{
+	function curl()
+	{
+		return new curl;
+	}
+}
 
 // $calssArr = [
 // 	'test'=>__DIR__.'\..\extend\Test.php',

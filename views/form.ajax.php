@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin:*");
-require_once '../msgtemplate.php';
+require_once '../app/msgtemplate.php';
 
 switch (true) 
 {

@@ -13,45 +13,43 @@ $access_token = $jsoninfo["access_token"];
 $jsonmenu = '{
       "button":[
       {
-            "name":"功能",
-           "sub_button":[
-            {
-               "type":"view",
-               "name":"百度",
-               "url":"http://www.baidu.com"
-            },
-            {
-               "type":"view",
-               "name":"网易",
-               "url":"http://www.163.com"
-            },
-            {
-               "type":"view",
-               "name":"获取地理位置",
-               "url":"http://wd1700273.pro.wdcase.com/mak/address.php"
-            },
-            {
-                "type":"view",
-                "name":"本地天气",
-                "url":"http://m.hao123.com/a/tianqi"
-            }]
-      
-
-       },
-       {
-           "name":"关于我",
-           "sub_button":[
-            {
-               "type":"view",
-               "name":"模板推送",
-               "url":"http://47.106.227.171/auth.php"
-            },
-            {
-                "type":"click",
-                "name":"联系方式",
-                "key":"联系方式"
-            }]
-       }]
+        "name":"功能演示",
+        "sub_button":[
+        {
+           "type":"view",
+           "name":"获取地理位置",
+           "url":"http://wd1700273.pro.wdcase.com/mak/address.php"
+        },
+        {
+            "type":"view",
+            "name":"本地天气",
+            "url":"http://m.hao123.com/a/tianqi"
+        },
+        {
+           "type":"view",
+           "name":"模板推送",
+           "url":"http://47.106.227.171/auth.php"
+        }]
+    },
+    {
+      "name":"项目展示",
+      "sub_button":[
+        {
+          "type":"click",
+          "name":"现在什么都还没有",
+          "key":"现在什么都还没有" 
+        }
+      ]
+    },
+    {
+      "name":"关于我",
+      "sub_button":[
+      {
+        "type":"click",
+        "name":"联系方式",
+        "key":"联系方式"
+      }]
+    }]
  }';
 
 
