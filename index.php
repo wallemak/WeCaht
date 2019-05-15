@@ -65,7 +65,7 @@ class WeChat
 				{
 					//订阅
 					$content = '终于等到你...';
-					echo $this->transmitText($postObj,$content);
+					echo $this->Welcome($postObj);
 				}
 
 				if($postObj->Event == 'unsubscribe') 
@@ -108,7 +108,7 @@ class WeChat
         return $result;
     }
 
-    private function Welcome($postObj,$content)
+    private function Welcome($postObj)
     {
     	$xml = "<xml>
 			<ToUserName><![CDATA[%s]]></ToUserName>
