@@ -36,10 +36,10 @@ try
 {
 	$db = new PDO($dsn,$user,$pass);
 
-	$sql = "SELECT `openid` FROM user WHERE `openid` = '$openid'";
+	$sql = "SELECT `openid` FROM weixin_user WHERE `openid` = '$openid'";
 	$res = $db->query($sql);
 
-	if(count($res->fetchAll(PDO::FETCH_ASSOC)) !=0)
+	if(count($res->fetchAll(PDO::FETCH_ASSOC)) >=1)
 	{
 		$sql = "UPDATE user SET";
 		foreach($data as $key=>$value){
