@@ -6,6 +6,7 @@
 	// var openid = 'okmP75wNvUsU2-uNfLCaT9-LB3gM';
 
 	$.get("http://47.106.227.171/views/form.ajax.php",{openid:openid,type:'GetUserinfo'},function(data,status){
+
 		new Vue({ el:'#headimgurl',data:{data} });
 		$('#hid').attr('value',data.openid);
 	},'json');

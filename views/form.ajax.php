@@ -28,6 +28,7 @@ function GetUserinfo()
 	{
 		$db = new PDO($dsn,$user,$pass);
 		$sql = "SELECT * FROM weixin_user WHERE `openid` = '$openid'";
+	
 		$res = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
 		echo json_encode($res);
 	}catch(PDOException $e)

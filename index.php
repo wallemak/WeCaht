@@ -108,6 +108,22 @@ class WeChat
         return $result;
     }
 
+    private function Welcome($postObj,$content)
+    {
+    	$xml = "<xml>
+			<ToUserName><![CDATA[%s]]></ToUserName>
+			<FromUserName><![CDATA[%s]]></FromUserName>
+			<CreateTime>%s</CreateTime>
+			<MsgType><![CDATA[image]]></MsgType>
+			<Image>
+			<MediaId><![CDATA[0wlf-ct1DSryFJ2eyA0lzPspJ9o166Td58YduHKy-oU]]></MediaId>
+			</Image>
+		</xml>";
+		$result = sprintf($xml, $postObj->FromUserName, $postObj->ToUserName, time() );
+		return $result;
+    }
+
+
 }
 
 
