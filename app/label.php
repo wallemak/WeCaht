@@ -98,9 +98,9 @@ class label
 }
 
 $label = new label;
-// $list = ['okmP75wNvUsU2-uNfLCaT9-LB3gM'];
-// $arr = $label->SetUserlabel($list,102);
-// echo $arr;
+$list = ['okmP75wNvUsU2-uNfLCaT9-LB3gM'];
+$arr = $label->SetUserlabel($list,102);
+echo $arr;
 $json = [
 	"button"=>[
 		[

@@ -5,7 +5,7 @@
 class curl 
 {
 
-	public function result($url,$data=null)
+	public function result($url,$data='')
     {
         $ch = curl_init();
         $params[CURLOPT_URL] = $url;    //请求url地址
