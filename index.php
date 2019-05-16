@@ -1,5 +1,7 @@
 <?php 
 header('Content-Type:text/html;charset=utf-8');
+require_once 'helpers/helper.php';
+require_once 'extend/check.php';
 
 // $appid = 'wx2ca1b4d674248dbd';
 // $AppSecret = 'b7cfe3b30a50baa9564900fbf297aedd';
@@ -20,6 +22,12 @@ if(isset($_GET['echostr'])){
 }
 class WeChat
 {
+
+	public function __construct()
+	{
+		$check = new check;
+		$this->access_token = $check->access_token;
+	}
 
 	public function valid()
 	{
@@ -66,7 +74,7 @@ class WeChat
 					//订阅
 					$content = '终于等到你...';
 					// echo $this->transmitText($postObj,$content);
-					echo $this->Welcome($postObj,$content);
+					echo $this->Welcome($postObj);
 				}
 
 				if($postObj->Event == 'unsubscribe') 
@@ -90,7 +98,10 @@ class WeChat
 			if($MsgType == 'voice')
 			{
 				$MediaId = $postObj->MediaId;
-				echo $this->transmitText($postObj,$MediaId);
+				$url = "http://api.weixin.qq.com/cgi-bin/media/voice/queryrecoresultfortext?access_token=$this->access_token&voice_id=MediaId&lang=zh_CN"
+				$result = curl()->result($url);
+				$res = json_decode($result,true)['result'];
+				echo $this->transmitText($postObj,$res);
 			}
 
 		}
@@ -115,19 +126,18 @@ class WeChat
         return $result;
     }
 
-    private function Welcome($postObj,$content)
+    private function Welcome($postObj)
     {
     	$xml = "<xml>
 			<ToUserName><![CDATA[%s]]></ToUserName>
 			<FromUserName><![CDATA[%s]]></FromUserName>
 			<CreateTime>%s</CreateTime>
 			<MsgType><![CDATA[image]]></MsgType>
-			<Content><![CDATA[%s]]></Content>
 			<Image>
 			<MediaId><![CDATA[0wlf-ct1DSryFJ2eyA0lzPspJ9o166Td58YduHKy-oU]]></MediaId>
 			</Image>
 		</xml>";
-		$result = sprintf($xml, $postObj->FromUserName, $postObj->ToUserName, time(),$content );
+		$result = sprintf($xml, $postObj->FromUserName, $postObj->ToUserName, time() );
 		return $result;
     }
 
