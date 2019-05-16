@@ -58,16 +58,15 @@ class WeChat
 			$this->sendTime = time();//发送时间;
 			$MsgType = $postObj->MsgType;//消息类型;
 
-			if($MsgType=='event') //微信响应事件;
+			if($MsgType == 'event') //微信响应事件;
 			{
 				// $MsgEvent = $postObj->Event;//获取事件类型
 				if($postObj->Event == 'subscribe') 
 				{
 					//订阅
 					$content = '终于等到你...';
-					$result =  $this->transmitText($postObj,$content);
-					$result = $result."\n".$this->Welcome($postObj);
-					echo $result;
+					// echo $this->transmitText($postObj,$content);
+					echo $this->Welcome($postObj,$content);
 				}
 
 				if($postObj->Event == 'unsubscribe') 
@@ -86,6 +85,12 @@ class WeChat
 					}
 				}
 
+			}
+
+			if($MsgType == 'voice')
+			{
+				$MediaId = $postObj->MediaId;
+				echo $this->transmitText($postObj,$MediaId);
 			}
 
 		}
@@ -110,18 +115,19 @@ class WeChat
         return $result;
     }
 
-    private function Welcome($postObj)
+    private function Welcome($postObj,$content)
     {
     	$xml = "<xml>
 			<ToUserName><![CDATA[%s]]></ToUserName>
 			<FromUserName><![CDATA[%s]]></FromUserName>
 			<CreateTime>%s</CreateTime>
 			<MsgType><![CDATA[image]]></MsgType>
+			<Content><![CDATA[%s]]></Content>
 			<Image>
 			<MediaId><![CDATA[0wlf-ct1DSryFJ2eyA0lzPspJ9o166Td58YduHKy-oU]]></MediaId>
 			</Image>
 		</xml>";
-		$result = sprintf($xml, $postObj->FromUserName, $postObj->ToUserName, time() );
+		$result = sprintf($xml, $postObj->FromUserName, $postObj->ToUserName, time(),$content );
 		return $result;
     }
 

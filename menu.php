@@ -17,16 +17,6 @@ $jsonmenu = '{
         "sub_button":[
         {
            "type":"view",
-           "name":"获取地理位置",
-           "url":"http://wd1700273.pro.wdcase.com/mak/address.php"
-        },
-        {
-            "type":"view",
-            "name":"本地天气",
-            "url":"http://m.hao123.com/a/tianqi"
-        },
-        {
-           "type":"view",
            "name":"模板推送",
            "url":"http://47.106.227.171/auth.php"
         }]

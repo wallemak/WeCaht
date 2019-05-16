@@ -98,7 +98,8 @@ class label
 }
 
 $label = new label;
-// $arr = $label->GetFans(102);
+// $list = ['okmP75wNvUsU2-uNfLCaT9-LB3gM'];
+// $arr = $label->SetUserlabel($list,102);
 // echo $arr;
 $json = [
 	"button"=>[
@@ -109,16 +110,6 @@ $json = [
 					"type"=>"view",
 					"name"=>"模板推送",
 					"url"=>"http://47.106.227.171/auth.php"
-				],
-				[
-					"type"=>"view",
-					"name"=>"获取地理位置",
-					"url"=>"http://wd1700273.pro.wdcase.com/mak/address.php"
-				],
-				[
-					"type"=>"view",
-					"name"=>"本地天气",
-					"url"=>"http://m.hao123.com/a/tianqi"
 				]
 			]
 		],
