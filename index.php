@@ -65,8 +65,9 @@ class WeChat
 				{
 					//订阅
 					$content = '终于等到你...';
-					// echo $this->transmitText($postObj,$content);
-					echo $this->Welcome($postObj);
+					$result =  $this->transmitText($postObj,$content);
+					$result = $result."\n".$this->Welcome($postObj);
+					echo $result;
 				}
 
 				if($postObj->Event == 'unsubscribe') 
