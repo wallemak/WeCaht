@@ -68,6 +68,7 @@ class msgtemplate
 		$json = [
 			"touser"=>$openid,
 			"template_id"=>"LjaOq8zl-L-qy2uQqwRocVLXwjClCkPQcn-c28If82c",
+			"url"=>"http://www.baidu.com",
 			"data"=>[
 				"first"=>[
 					"value"=>"推送成功",

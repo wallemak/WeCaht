@@ -65,6 +65,7 @@ class WeChat
 				{
 					//订阅
 					$content = '终于等到你...';
+					echo $this->transmitText($postObj,$content);
 					echo $this->Welcome($postObj);
 				}
 
