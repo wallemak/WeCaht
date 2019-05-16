@@ -98,9 +98,9 @@ class WeChat
 			if($MsgType == 'voice')
 			{
 				$MediaId = $postObj->MediaId;
-				$url = "http://api.weixin.qq.com/cgi-bin/media/voice/queryrecoresultfortext?access_token=$this->access_token&voice_id=MediaId&lang=zh_CN"
-				$result = curl()->result($url);
-				echo $result;
+				// $url = "http://api.weixin.qq.com/cgi-bin/media/voice/queryrecoresultfortext?access_token=$this->access_token&voice_id=MediaId&lang=zh_CN"
+				// $result = curl()->result($url);
+				// echo $result;
 				// $res = json_decode($result,true)['result'];
 				// echo $this->transmitText($postObj,$res);
 			}
