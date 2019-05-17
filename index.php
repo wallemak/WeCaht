@@ -89,8 +89,7 @@ class WeChat
 
 			if($MsgType == 'voice')
 			{
-				$MediaId = $postObj->MediaId;
-				echo $this->transmitText($postObj,$MediaId);
+				echo $this->transmitText($postObj,$postObj->Recognition);
 			}
 
 		}
