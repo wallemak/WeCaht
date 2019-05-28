@@ -18,7 +18,7 @@ $jsonmenu = '{
         {
            "type":"view",
            "name":"模板推送",
-           "url":"http://47.106.227.171/auth.php"
+           "url":"http://47.106.227.171/auth.php?url=http://47.106.227.171/views/form.html"
         }]
     },
     {

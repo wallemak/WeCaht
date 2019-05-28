@@ -8,6 +8,7 @@ if(!isset($_GET['code'])){
 	echo 'NO CODE';
 	exit();
 }
+$url = urldecode($_GET['send_url']);
 $code = $_GET['code'];
 $arr = file_get_contents("https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$AppSecret&code=$code&grant_type=authorization_code");
 $arr = json_decode($arr,true);
@@ -54,7 +55,8 @@ try
 		$sql.="('".implode("','",$data)."')";
 	}
 	$db->query($sql);
-	$url = "http://47.106.227.171/views/form.html?openid=$openid";
+	$url .= "?openid=$openid";
+	// $url = "http://47.106.227.171/views/form.html?openid=$openid";
 	header("Location:".$url);
 
 }catch(PDOException $e)
