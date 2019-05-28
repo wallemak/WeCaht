@@ -21,8 +21,6 @@ class msgtemplate
 			"industry_id2"=>$id2
 		];
 		$json = json_encode($json);
-		// $post_data = http_build_query($json);
-		// $url = $url.'&'.$post_data;
 		
 		$result = $this->https_request($url,$json);
 		return $result;
