@@ -6,6 +6,7 @@ use think\Controller;
 use app\BaseController;
 // use think\Request;
 use think\facade\Request;
+use think\DB;
 
 class MsgtemplateController extends BaseController
 {

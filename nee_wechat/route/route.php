@@ -18,4 +18,5 @@ Route::group('wc',function(){
 	Route::get('set_tem','wc/MsgtemplateController/set_tem');
 	Route::get('get_tem','wc/MsgtemplateController/get_industry');
 	Route::get('get_id','wc/MsgtemplateController/get_temId');
+	Route::post('pub','wc/MsgtemplateController/pub_msg');
 });
