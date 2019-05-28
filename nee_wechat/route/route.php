@@ -13,7 +13,6 @@
 Route::group('/',function(){
 	Route::get('/','home/Home/index');
 });
-
 Route::group('wc',function(){
 	Route::get('set_tem','wc/MsgtemplateController/set_tem');
 	Route::get('get_tem','wc/MsgtemplateController/get_industry');
