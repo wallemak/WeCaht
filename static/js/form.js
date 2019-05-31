@@ -10,7 +10,13 @@
 		new Vue({ el:'#headimgurl',data:{data} });
 		$('#hid').attr('value',data.openid);
 	},'json');
-	// 
+
+	// $.ajax({
+	// 	url:
+
+	// });
+
+ 
 	// $.get("http://192.168.131.1/mak/weixin/views/form.ajax.php",{openid:openid,type:'GetUserinfo'},function(data,status){
 	// 	new Vue({ el:'#headimgurl',data:{data} });
 	// 	$('#hid').attr('value',data.openid);

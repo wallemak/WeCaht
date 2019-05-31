@@ -14,5 +14,6 @@ class BaseController extends Controller
         parent::__construct();
         $check = new check;
         $this->access_token = $check->access_token;
+        $this->ticket = $check->ticket;
     }
 }

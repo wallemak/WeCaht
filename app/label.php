@@ -98,8 +98,8 @@ class label
 }
 
 $label = new label;
-$list = ['okmP75wNvUsU2-uNfLCaT9-LB3gM'];
-$arr = $label->SetUserlabel($list,102);
+// $list = ['okmP75wNvUsU2-uNfLCaT9-LB3gM'];
+$arr = $label->GetFans(102);
 echo $arr;
 $json = [
 	"button"=>[
@@ -109,7 +109,7 @@ $json = [
 				[
 					"type"=>"view",
 					"name"=>"模板推送",
-					"url"=>"http://47.106.227.171/auth.php"
+					"url"=>"http://47.106.227.171/auth.php?url=http://47.106.227.171/views/form.html"
 				]
 			]
 		],
@@ -142,20 +142,23 @@ $json = [
 $access_token = new check;
 $access_token = $access_token->access_token;
 
-// $json = json_encode($json,JSON_UNESCAPED_UNICODE);
+$json = json_encode($json,JSON_UNESCAPED_UNICODE);
 // $url = "https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token=$access_token";
 // $res = curl()->result($url,$json);
-/*
+// echo $res;
 
-/*()
-删除个性化菜单:
-$data = [
-	"menuid"=>"525274375",
-];
-$data = json_encode($data,JSON_UNESCAPED_UNICODE);
-$url = "https://api.weixin.qq.com/cgi-bin/menu/delconditional?access_token=$access_token";
-$res = curl()->result($url,$data);
-**/
+
+
+
+//删除个性化菜单:
+// $data = [
+// 	"menuid"=>"525281284",
+// ];
+// $data = json_encode($data,JSON_UNESCAPED_UNICODE);
+// $url = "https://api.weixin.qq.com/cgi-bin/menu/delconditional?access_token=$access_token";
+// $res = curl()->result($url,$data);
+// echo $res;
+
 
 // 
 // 

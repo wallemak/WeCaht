@@ -18,4 +18,17 @@ Route::group('wc',function(){
 	Route::get('get_tem','wc/MsgtemplateController/get_industry');
 	Route::get('get_id','wc/MsgtemplateController/get_temId');
 	Route::post('pub','wc/MsgtemplateController/pub_msg');
+
+	Route::get('add_service','wc/ServiceController/add_service');
+
+	Route::post('set_label','wc/LabelController/SetLabel');
+	Route::post('del_label','wc/LabelController/DelLabel');
+	Route::post('edit_label','wc/LabelController/EditLabel');
+	Route::post('set_userlabel','wc/LabelController/SetUserlabel');
+	Route::get('label_list','wc/LabelController/GetLabel');
+	Route::get('fans_list','wc/LabelController/GetFans');
+	Route::get('user_list','wc/LabelController/GetUserlist');
+
+
+
 });

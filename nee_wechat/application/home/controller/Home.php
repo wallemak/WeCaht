@@ -21,7 +21,7 @@ class Home extends Controller
      */
     public function index()
     {
-        return 23333;
+        return 'nee_wechat';
     }
 
   
