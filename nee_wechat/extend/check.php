@@ -28,7 +28,7 @@ class check
 		$ticket = redis()->get('ticket');
 		if(!$ticket)
 		{
-			$res = json_decode(file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=$access_token&type=jsapi"),true);
+			$res = json_decode(file_get_contents("https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=$this->access_token&type=jsapi"),true);
 			$ticket = $res['ticket'];
 			redis()->set('ticket',$ticket,5400);
 
