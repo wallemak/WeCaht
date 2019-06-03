@@ -5,14 +5,14 @@
 	var openid = search==null?null : unescape(search[2]);
 	// var openid = 'okmP75wNvUsU2-uNfLCaT9-LB3gM';
 
-	// $.get("http://47.106.227.171/views/form.ajax.php",{openid:openid,type:'GetUserinfo'},function(data,status){
+	$.get("http://47.106.227.171/views/form.ajax.php",{openid:openid,type:'GetUserinfo'},function(data,status){
 
-	// 	new Vue({ el:'#headimgurl',data:{data} });
-	// 	$('#hid').attr('value',data.openid);
-	// },'json');
+		new Vue({ el:'#headimgurl',data:{data} });
+		$('#hid').attr('value',data.openid);
+	},'json');
 	var url = document.location.href;
 	$.ajax({
-		url:"http://192.168.131.1:8090/wc/wx_sdk?url="+url,
+		url:"http://47.106.227.171:81/wc/wx_sdk?url="+url,
 		type:'GET',
 		dataType:"jsonp",
 		success:function(data)
@@ -28,6 +28,7 @@
 			    	'updateAppMessageShareData'//自定义“分享给朋友”及“分享到QQ”按钮的分享内容
 			    ] // 必填，需要使用的JS接口列表
 			});
+
 		}
 	});
 
