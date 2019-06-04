@@ -33,7 +33,9 @@
 		    signature: data.signature,// 必填，签名
 		    jsApiList: [
 		    	'updateTimelineShareData',//自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容
-		    	'updateAppMessageShareData'//自定义“分享给朋友”及“分享到QQ”按钮的分享内容
+		    	'updateAppMessageShareData',//自定义“分享给朋友”及“分享到QQ”按钮的分享内容
+		    	'onMenuShareAppMessage',
+		    	'onMenuShareTimeline'
 		    ] // 必填，需要使用的JS接口列表
 		});
 
@@ -53,7 +55,7 @@
 	            {
 	            	console.log('失败')
 	            },
-	            
+
 	        });
 
 	        wx.updateAppMessageShareData({
