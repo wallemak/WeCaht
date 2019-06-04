@@ -23,7 +23,7 @@
 
 	function suc(data)
 	{
-		// console.log(data);
+
 		wx.config({
 		    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 		    appId: 'wx2ca1b4d674248dbd', // 必填，公众号的唯一标识
@@ -35,7 +35,8 @@
 		    	'updateAppMessageShareData'//自定义“分享给朋友”及“分享到QQ”按钮的分享内容
 		    ] // 必填，需要使用的JS接口列表
 		});
-
+/**
+ 
 		//config 执行成功:
 		wx.ready(function(){
 			// console.log('ok');
@@ -72,7 +73,8 @@
 		wx.error(function(res){
 		    console.log(res)
 		});
-
+* 
+*/
 
 	}
 	// $.get("http://192.168.131.1/mak/weixin/views/form.ajax.php",{openid:openid,type:'GetUserinfo'},function(data,status){
