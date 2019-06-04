@@ -18,12 +18,12 @@ class SDKController extends BaseController
     {
         $time = time();
         $noncestr = uniqid('nee');
-        $json = [
+        $jsonsc = [
             'jsapi_ticket'=>$this->ticket,
-            'noncestr'=>'nee5cf5dee744d77',
-            'timestamp'=>1559614866,
-            // 'url'=>Request::param('url'),
-            'url'=>"https://www.baidu.com",
+            'noncestr'=>$noncestr,
+            'timestamp'=>$time,
+            'url'=>Request::param('url'),
+            // 'url'=>"https://www.baidu.com",
         ];
         // ksort($json);
         // $string = sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s", $json['jsapi_ticket'], $json['noncestr'], $json['timestamp'], $json['url']);
