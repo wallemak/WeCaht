@@ -11,8 +11,9 @@
 		$('#hid').attr('value',data.openid);
 	},'json');
 	var url = document.location.href;
+	// console.log(location.href.split("#")[0])
 	$.ajax({
-		url:"http://47.106.227.171:81/wc/wx_sdk?url="+location.href.split("#")[0],
+		url:"http://192.168.131.1:8090/wc/wx_sdk?url="+location.href.split("#")[0],
 		type:'GET',
 		dataType:"jsonp",
 		success:function(data)
@@ -42,28 +43,29 @@
 			// console.log('ok');
 		    wx.updateTimelineShareData({ 
 	            title: '消息推送', // 分享标题
-	            link: 'http://47.106.227.171/views/form.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	            link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
 	            imgUrl: '../static/images/2.jpg', // 分享图标
 	            success: function () {
 	             	// 设置成功
 	            	console.log('设置成功');
 	            },
-	            complete:function()
+	            fail:function()
 	            {
 	            	console.log('失败')
-	            }
+	            },
+	            
 	        });
 
 	        wx.updateAppMessageShareData({
 	        	title: '消息推送', // 分享标题
 	        	desc: '公众号的消息推送', //内容描述
-	        	link: 'http://47.106.227.171/views/form.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	        	link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
 	        	imgUrl: '../static/images/2.jpg', // 分享图标
 	        	success: function () {
 	        	 	// 设置成功
 	        		console.log('设置成功');
 	        	},
-	        	complete:function()
+	        	fail:function()
 	        	{
 	        		console.log('失败')
 	        	}

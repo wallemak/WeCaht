@@ -25,6 +25,7 @@ class SDKController extends BaseController
             'noncestr'=>$noncestr,
             'timestamp'=>$time,
             'url'=>Request::param('url'),
+            // 'url'=>$url,
         ];
         // ksort($json);
         // $string = sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s", $json['jsapi_ticket'], $json['noncestr'], $json['timestamp'], $json['url']);
@@ -35,6 +36,7 @@ class SDKController extends BaseController
             'noncestr' => $noncestr,
             'signature' => $signature,
             'url' => Request::param('url')
+            // 'url' => $url
         ];
         return jsonp($data);
     }
