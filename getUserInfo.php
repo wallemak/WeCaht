@@ -40,14 +40,13 @@ try
 	$sql = "DELETE FROM weixin_user WHERE `openid` = '$openid'";
 	$res = $db->query($sql);
 
-	$sql = "INSERT INTO user";
+	$sql = "INSERT INTO weixin_user";
 	$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
 	$sql.="('".implode("','",$data)."')";
 	$res = $db->query($sql);
-	var_dump($sql);
 	$url .= "?openid=$openid";
 	// $url = "http://47.106.227.171/views/form.html?openid=$openid";
-	// header("Location:".$url);
+	header("Location:".$url);
 
 }catch(PDOException $e)
 {
