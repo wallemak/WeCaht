@@ -35,7 +35,7 @@
 		    	'updateAppMessageShareData'//自定义“分享给朋友”及“分享到QQ”按钮的分享内容
 		    ] // 必填，需要使用的JS接口列表
 		});
-/**
+
  
 		//config 执行成功:
 		wx.ready(function(){
@@ -73,8 +73,7 @@
 		wx.error(function(res){
 		    console.log(res)
 		});
-* 
-*/
+
 
 	}
 	// $.get("http://192.168.131.1/mak/weixin/views/form.ajax.php",{openid:openid,type:'GetUserinfo'},function(data,status){
