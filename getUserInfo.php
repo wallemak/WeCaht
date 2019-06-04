@@ -15,7 +15,7 @@ $arr = json_decode($arr,true);
 $access_token = $arr['access_token'];
 $userInfo = json_decode(file_get_contents("https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=OPENID&lang=zh_CN"),true);
 $openid = $userInfo['openid'];
-
+print_r($userInfo);
 $dbms = 'mysql';
 $host = '47.106.227.171';
 $dbName = 'weixin';
@@ -44,10 +44,10 @@ try
 	$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
 	$sql.="('".implode("','",$data)."')";
 	$db->query($sql);
-	
+
 	$url .= "?openid=$openid";
 	// $url = "http://47.106.227.171/views/form.html?openid=$openid";
-	header("Location:".$url);
+	// header("Location:".$url);
 
 }catch(PDOException $e)
 {
