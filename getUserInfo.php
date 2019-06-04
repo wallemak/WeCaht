@@ -15,7 +15,7 @@ $arr = json_decode($arr,true);
 $access_token = $arr['access_token'];
 $userInfo = json_decode(file_get_contents("https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=OPENID&lang=zh_CN"),true);
 $openid = $userInfo['openid'];
-print_r($userInfo);
+
 $dbms = 'mysql';
 $host = '47.106.227.171';
 $dbName = 'weixin';
@@ -39,7 +39,7 @@ try
 
 	$sql = "DELETE FROM weixin_user WHERE `openid` = '$openid'";
 	$res = $db->query($sql);
-
+	var_dump($res);
 	$sql = "INSERT INTO user";
 	$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
 	$sql.="('".implode("','",$data)."')";
