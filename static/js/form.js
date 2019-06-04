@@ -13,7 +13,7 @@
 	var url = document.location.href;
 	// console.log(location.href.split("#")[0])
 	$.ajax({
-		url:"http://192.168.131.1:8090/wc/wx_sdk?url="+location.href.split("#")[0],
+		url:"http://47.106.227.171:81/wc/wx_sdk?url="+location.href.split("#")[0],
 		type:'GET',
 		dataType:"jsonp",
 		success:function(data)
@@ -90,7 +90,7 @@
             } else {
                 wx.onMenuShareTimeline({
 					title: '消息推送', // 分享标题
-					link: http://47.106.227.171/views/form.html, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+					link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
 					imgUrl: '', // 分享图标
 					success: function () {
 					// 用户点击了分享后执行的回调函数
