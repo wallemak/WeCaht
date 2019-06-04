@@ -39,12 +39,12 @@ try
 
 	$sql = "DELETE FROM weixin_user WHERE `openid` = '$openid'";
 	$res = $db->query($sql);
-	var_dump($res);
+
 	$sql = "INSERT INTO user";
 	$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
 	$sql.="('".implode("','",$data)."')";
-	$db->query($sql);
-
+	$res = $db->query($sql);
+	var_dump($res);
 	$url .= "?openid=$openid";
 	// $url = "http://47.106.227.171/views/form.html?openid=$openid";
 	// header("Location:".$url);
