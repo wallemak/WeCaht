@@ -45,8 +45,8 @@
 			// console.log('ok');
 		    wx.updateTimelineShareData({ 
 	            title: '消息推送', // 分享标题
-	            link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-	            imgUrl: '../static/images/2.jpg', // 分享图标
+	            link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	            imgUrl: '', // 分享图标
 	            success: function () {
 	             	// 设置成功
 	            	console.log('设置成功');
