@@ -29,7 +29,7 @@
 		    appId: 'wx2ca1b4d674248dbd', // 必填，公众号的唯一标识
 		    timestamp: data.time , // 必填，生成签名的时间戳
 		    nonceStr: data.noncestr, // 必填，生成签名的随机串
-		    signature: encodeURIComponent(data.signature),// 必填，签名
+		    signature: data.signature,// 必填，签名
 		    jsApiList: [
 		    	'updateTimelineShareData',//自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容
 		    	'updateAppMessageShareData'//自定义“分享给朋友”及“分享到QQ”按钮的分享内容
