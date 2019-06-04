@@ -37,24 +37,14 @@ try
 {
 	$db = new PDO($dsn,$user,$pass);
 
-	$sql = "SELECT `openid` FROM weixin_user WHERE `openid` = '$openid'";
+	$sql = "DELETE FROM weixin_user WHERE `openid` = '$openid'";
 	$res = $db->query($sql);
 
-	if(count($res->fetchAll(PDO::FETCH_ASSOC)) >=1)
-	{
-		$sql = "UPDATE user SET";
-		foreach($data as $key=>$value){
-			$sql.="`$key`='$value',";
-		}
-		$sql=rtrim($sql,',');
-		$sql."WHERE `openid` = $openid";
-		$db->query($sql);
-	}else{
-		$sql = "INSERT INTO user";
-		$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
-		$sql.="('".implode("','",$data)."')";
-	}
+	$sql = "INSERT INTO user";
+	$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
+	$sql.="('".implode("','",$data)."')";
 	$db->query($sql);
+	
 	$url .= "?openid=$openid";
 	// $url = "http://47.106.227.171/views/form.html?openid=$openid";
 	header("Location:".$url);
