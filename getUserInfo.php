@@ -44,7 +44,7 @@ try
 	$sql.="(`".implode('`,`',array_keys($data))."`)VALUES";  
 	$sql.="('".implode("','",$data)."')";
 	$res = $db->query($sql);
-	var_dump($res);
+	var_dump($sql);
 	$url .= "?openid=$openid";
 	// $url = "http://47.106.227.171/views/form.html?openid=$openid";
 	// header("Location:".$url);
