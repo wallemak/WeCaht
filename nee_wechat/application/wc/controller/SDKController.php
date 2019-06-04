@@ -18,12 +18,13 @@ class SDKController extends BaseController
     {
         $time = time();
         $noncestr = uniqid('nee');
+        $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+        $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $json = [
             'jsapi_ticket'=>$this->ticket,
             'noncestr'=>$noncestr,
             'timestamp'=>$time,
             'url'=>Request::param('url'),
-            // 'url'=>"https://www.baidu.com",
         ];
         // ksort($json);
         // $string = sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s", $json['jsapi_ticket'], $json['noncestr'], $json['timestamp'], $json['url']);
