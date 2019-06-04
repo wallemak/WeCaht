@@ -19,14 +19,15 @@ class SDKController extends BaseController
         $time = time();
         $noncestr = uniqid('nee');
         $json = [
-            'noncestr'=>$noncestr,
             'jsapi_ticket'=>$this->ticket,
-            'timestamp'=>$time,
-            'url'=>Request::param('url'),
+            'noncestr'=>'nee5cf5dee744d77',
+            'timestamp'=>1559614866,
+            // 'url'=>Request::param('url'),
+            'url'=>"https://www.baidu.com",
         ];
-        asort($json);
-        // $json = json_encode($json,JSON_UNESCAPED_UNICODE);
-        $json = http_build_query($json);
+        // ksort($json);
+        // $string = sprintf("jsapi_ticket=%s&noncestr=%s&timestamp=%s&url=%s", $json['jsapi_ticket'], $json['noncestr'], $json['timestamp'], $json['url']);
+        $json = $this->ASCII($json);
         $signature = sha1($json);
         $data = [
             'time' => $time,
@@ -35,5 +36,21 @@ class SDKController extends BaseController
             'url' => Request::param('url')
         ];
         return jsonp($data);
+    }
+
+    public function  ASCII($params = array())
+    {
+        if(!empty($params)){
+           $p =  ksort($params);
+           if($p){
+               $str = '';
+               foreach ($params as $k=>$val){
+                   $str .= $k .'=' . $val . '&';
+               }
+               $strs = rtrim($str, '&');
+               return $strs;
+           }
+        }
+        return '参数错误';
     }
 }
