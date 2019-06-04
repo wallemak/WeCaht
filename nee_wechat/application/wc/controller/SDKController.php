@@ -18,7 +18,7 @@ class SDKController extends BaseController
     {
         $time = time();
         $noncestr = uniqid('nee');
-        $jsonsc = [
+        $json = [
             'jsapi_ticket'=>$this->ticket,
             'noncestr'=>$noncestr,
             'timestamp'=>$time,
