@@ -43,22 +43,22 @@
 		//config 执行成功:
 		wx.ready(function(){
 
-			// if (wx.updateAppMessageShareData) {
-   //              wx.updateAppMessageShareData({
-   //              	title: '消息推送', // 分享标题
-   //              	desc: '公众号的消息推送', //内容描述
-   //              	link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-   //              	imgUrl: '../static/images/2.jpg', // 分享图标
-   //              	success: function () {
-   //              	 	// 设置成功
-   //              		console.log('设置成功');
-   //              	},
-   //              	fail:function()
-   //              	{
-   //              		console.log('失败')
-   //              	}
-   //              });
-   //          } else {
+			if (wx.updateAppMessageShareData) {
+                wx.updateAppMessageShareData({
+                	title: '消息推送', // 分享标题
+                	desc: '公众号的消息推送', //内容描述
+                	link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                	imgUrl: '../static/images/2.jpg', // 分享图标
+                	success: function () {
+                	 	// 设置成功
+                		console.log('设置成功');
+                	},
+                	fail:function()
+                	{
+                		console.log('失败')
+                	}
+                });
+            } else {
                 wx.onMenuShareAppMessage({
 	                title: '消息推送', // 分享标题
 	                desc: '公众号的消息推送', // 分享描述
@@ -70,24 +70,24 @@
 	                // 用户点击了分享后执行的回调函数
 	                }
                 });
-            // }
+            }
 
-            // if (wx.updateTimelineShareData) {
-        	   //  wx.updateTimelineShareData({ 
-            //         title: '消息推送', // 分享标题
-            //         link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            //         imgUrl: '', // 分享图标
-            //         success: function () {
-            //          	// 设置成功
-            //         	console.log('设置成功');
-            //         },
-            //         fail:function()
-            //         {
-            //         	console.log('失败')
-            //         },
+            if (wx.updateTimelineShareData) {
+        	    wx.updateTimelineShareData({ 
+                    title: '消息推送', // 分享标题
+                    link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: '', // 分享图标
+                    success: function () {
+                     	// 设置成功
+                    	console.log('设置成功');
+                    },
+                    fail:function()
+                    {
+                    	console.log('失败')
+                    },
 
-            //     });
-            // } else {
+                });
+            } else {
                 wx.onMenuShareTimeline({
 					title: '消息推送', // 分享标题
 					link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
@@ -96,7 +96,7 @@
 					// 用户点击了分享后执行的回调函数
 					}
                 });
-            // }
+            }
 
 
 
