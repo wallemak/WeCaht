@@ -63,7 +63,7 @@
 	                title: '消息推送', // 分享标题
 	                desc: '公众号的消息推送', // 分享描述
 	                link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-	                imgUrl: '', // 分享图标
+	                imgUrl: '../static/images/2.jpg', // 分享图标
 	                type: '', // 分享类型,music、video或link，不填默认为link
 	                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 	                success: function () {
@@ -76,7 +76,7 @@
         	    wx.updateTimelineShareData({ 
                     title: '消息推送', // 分享标题
                     link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: '', // 分享图标
+                    imgUrl: '../static/images/2.jpg', // 分享图标
                     success: function () {
                      	// 设置成功
                     	console.log('设置成功');
@@ -91,7 +91,7 @@
                 wx.onMenuShareTimeline({
 					title: '消息推送', // 分享标题
 					link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-					imgUrl: '', // 分享图标
+					imgUrl: '../static/images/2.jpg', // 分享图标
 					success: function () {
 					// 用户点击了分享后执行的回调函数
 					}
@@ -131,5 +131,4 @@
 			},'json');
 		}
 	});
-
 })();
