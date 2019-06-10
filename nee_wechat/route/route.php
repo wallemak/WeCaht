@@ -16,8 +16,8 @@ Route::group('/',function(){
 Route::group('wc',function(){
 	//消息模板
 	Route::get('set_tem','wc/MsgtemplateController/set_tem');
-	// Route::get('get_tem','wc/MsgtemplateController/get_industry');
-	Route::get('get_tem',function(){ return 'get_tem'; });
+	Route::get('get_tem','wc/MsgtemplateController/get_industry');
+	// Route::get('get_tem',function(){ return 'get_tem'; });
 	Route::get('get_id','wc/MsgtemplateController/get_temId');
 	Route::post('pub','wc/MsgtemplateController/pub_msg');
 
