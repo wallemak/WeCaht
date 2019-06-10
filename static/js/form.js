@@ -18,7 +18,8 @@
 		dataType:"jsonp",
 		success:function(data)
 		{
-			suc(data);
+			// suc(data);
+			console.log(data);
 		}
 	});
 
