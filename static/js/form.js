@@ -121,7 +121,8 @@
 		click:function()
 		{
 			var content = $('#content').val();
-			$.post("http://47.106.227.171/views/form.ajax.php",{openid:openid,content:content,type:'submit'},function(data,status){
+			$.post("http://47.106.227.171:81/wc/pub",{openid:openid,content:content,type:'submit'},function(data,status){
+			// $.post("http://47.106.227.171/views/form.ajax.php",{openid:openid,content:content,type:'submit'},function(data,status){
 				if(data.errmsg == 'ok'){
 					alert('推送成功');
 				}
