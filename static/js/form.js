@@ -10,8 +10,10 @@
 		new Vue({ el:'#headimgurl',data:{data} });
 		$('#hid').attr('value',data.openid);
 	},'json');
-	var url = document.location.href;
-	console.log(location.href.split("#")[0])
+	// var url = document.location.href;
+	var url = location.href.split("#")[0];
+	// console.log(url)
+	
 	$.ajax({
 		url:"http://47.106.227.171:81/wc/wx_sdk?url="+location.href.split("#")[0],
 		type:'GET',
@@ -19,7 +21,7 @@
 		success:function(data)
 		{
 			// suc(data);
-			console.log(data);
+			// console.log(data);
 		}
 	});
 
@@ -48,7 +50,8 @@
                 wx.updateAppMessageShareData({
                 	title: '消息推送', // 分享标题
                 	desc: '公众号的消息推送', //内容描述
-                	link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                	// link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                	link: data.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 	imgUrl: '../images/2.jpg', // 分享图标
                 	success: function () {
                 	 	// 设置成功
@@ -63,7 +66,7 @@
                 wx.onMenuShareAppMessage({
 	                title: '消息推送', // 分享标题
 	                desc: '公众号的消息推送(旧)', // 分享描述
-	                link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+	                link: data.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
 	                imgUrl: '../images/2.jpg', // 分享图标
 	                type: '', // 分享类型,music、video或link，不填默认为link
 	                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -76,7 +79,7 @@
             if (wx.updateTimelineShareData) {
         	    wx.updateTimelineShareData({ 
                     title: '消息推送', // 分享标题
-                    link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    link: data.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                     imgUrl: '../images/2.jpg', // 分享图标
                     success: function () {
                      	// 设置成功
@@ -91,7 +94,8 @@
             } else {
                 wx.onMenuShareTimeline({
 					title: '消息推送', // 分享标题
-					link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+					// link: "http://47.106.227.171/views/form.html", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+					link: data.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
 					imgUrl: '../images/2.jpg', // 分享图标
 					success: function () {
 					// 用户点击了分享后执行的回调函数
@@ -132,4 +136,12 @@
 			},'json');
 		}
 	});
+
+	function getQueryString(key) { 
+        var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+        var result = window.location.search.substr(1).match(reg);
+        return result ? decodeURIComponent(result[2]) : false;
+    }
+
+
 })();
