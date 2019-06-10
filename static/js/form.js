@@ -11,7 +11,7 @@
 		$('#hid').attr('value',data.openid);
 	},'json');
 	var url = document.location.href;
-	// console.log(location.href.split("#")[0])
+	console.log(location.href.split("#")[0])
 	$.ajax({
 		url:"http://47.106.227.171:81/wc/wx_sdk?url="+location.href.split("#")[0],
 		type:'GET',
