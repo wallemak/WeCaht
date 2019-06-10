@@ -49,7 +49,7 @@
 			if (wx.updateAppMessageShareData) {
                 wx.updateAppMessageShareData({
                 	title: '消息推送', // 分享标题
-                	desc: '公众号的消息推送', //内容描述
+                	desc: '公众号的消息推送(新)', //内容描述
                 	// link: location.href.split("#")[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 	link: data.url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                 	imgUrl: '../images/2.jpg', // 分享图标
