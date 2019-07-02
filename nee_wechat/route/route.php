@@ -36,3 +36,6 @@ Route::group('wc',function(){
 
 
 });
+
+Route::get('test','home/Home/test');
+Route::get('tt','home/Home/tt');
